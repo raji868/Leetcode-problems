@@ -1,0 +1,21 @@
+class Solution:
+    def maxArea(self, height: list[int]) -> int:
+        l, r = 0, len(height) - 1
+        max_water = 0
+        
+        while l < r:
+            # Calculate current area
+            # Using local variables for height[l] and height[r] can slightly speed up access
+            h_l, h_r = height[l], height[r]
+            current_area = min(h_l, h_r) * (r - l)
+            
+            if current_area > max_water:
+                max_water = current_area
+            
+            # Move the pointer with the smaller height
+            if h_l < h_r:
+                l += 1
+            else:
+                r -= 1
+                
+        return max_water
