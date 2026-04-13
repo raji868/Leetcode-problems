@@ -1,0 +1,13 @@
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        # Dictionary to store: {value: index}
+        prevMap = {} 
+        
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                # Return current index and the index where the diff was found
+                return [prevMap[diff], i]
+            
+            # Store the current number's index
+            prevMap[n] = i
