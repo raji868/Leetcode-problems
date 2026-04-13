@@ -1,0 +1,15 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        # Edge cases: negative numbers and numbers ending in 0 (except 0)
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+        
+        reversed_num = 0
+        while x > reversed_num:
+            # Move last digit from x to reversed_num
+            reversed_num = (reversed_num * 10) + (x % 10)
+            x //= 10
+            
+        # For even digits: x == reversed_num (e.g., 1221 -> x=12, rev=12)
+        # For odd digits: x == reversed_num // 10 (e.g., 121 -> x=1, rev=12)
+        return x == reversed_num or x == reversed_num // 10
