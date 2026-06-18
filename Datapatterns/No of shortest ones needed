@@ -1,0 +1,16 @@
+public class RepunitFinder {
+    public static int findShortestOnes(int n) {
+        int remainder = 0;
+        int countOfOnes = 0;
+        do {
+            remainder = (remainder * 10 + 1) % n;
+            countOfOnes++;
+        } while (remainder != 0);
+        return countOfOnes;
+    }
+    public static void main(String[] args) {
+        System.out.println("For 3: Need " + findShortestOnes(3) + " ones");  
+        System.out.println("For 13: Need " + findShortestOnes(13) + " ones");
+        System.out.println("For 23: Need " + findShortestOnes(23) + " ones");
+    }
+}
